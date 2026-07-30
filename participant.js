@@ -84,7 +84,6 @@
 await buzzRef.set({
     name: name,
     playerId: playerId,
-    timestamp: firebase.database.ServerValue.TIMESTAMP
 });
 
 buzzBtn.disabled = true;
