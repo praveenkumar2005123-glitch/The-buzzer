@@ -79,11 +79,21 @@
     buzzBtn.disabled = true;
     tone('buzz');
     if (navigator.vibrate) navigator.vibrate([120,50,180]);
-    const winnerRef = roomRef.child('winner');
-    const result = await winnerRef.transaction((current) => {
-      if (current === null) return { name, playerId, timestamp: firebase.database.ServerValue.TIMESTAMP };
-      return;
-    });
+    const buzzRef = roomRef.child("buzzes").push();
+
+await buzzRef.set({
+    name: name,
+    playerId: playerId,
+    timestamp: firebase.database.ServerValue.TIMESTAMP
+});
+
+buzzBtn.disabled = true;
+setStatus(
+    "Buzz Sent",
+    "Recorded",
+    "Your buzz has been recorded.",
+    false
+);
     if (!result.committed) tone('error');
   });
 
