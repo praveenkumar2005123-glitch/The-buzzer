@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050403" />
+  <title>Quiz Master | Link Ohh Link</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700;6..96,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header">
+    <div class="brand">QUIZ MASTER</div>
+    <a class="admin-link" href="index.html">Participant View</a>
+  </header>
+
+  <main class="page-shell admin-shell">
+    <section class="hero compact">
+      <p class="eyebrow">LINK OHH LINK · CONTROL PANEL</p>
+      <h1>Control the<br><span>first buzz.</span></h1>
+    </section>
+
+    <section class="glass-card" id="createPanel">
+      <div class="card-heading">
+        <span class="step">01</span>
+        <div><h2>Create Buzzer Room</h2><p>Generate a room code and share it with participants.</p></div>
+      </div>
+      <button class="primary-btn" id="createRoomBtn">Create Room</button>
+      <p class="message" id="adminMessage"></p>
+    </section>
+
+    <section class="hidden" id="controlPanel">
+      <div class="admin-grid">
+        <section class="glass-card room-card">
+          <span class="label">ROOM CODE</span>
+          <div class="room-code" id="roomCodeDisplay">------</div>
+          <p>Participants can join from the main website.</p>
+          <button class="ghost-btn full" id="copyRoomBtn">Copy Room Code</button>
+        </section>
+
+        <section class="glass-card control-card">
+          <span class="label">BUZZER STATUS</span>
+          <div class="big-status" id="adminStatus">LOCKED</div>
+          <div class="control-row">
+            <button class="primary-btn" id="enableBtn">Enable Buzzer</button>
+            <button class="secondary-btn" id="lockBtn">Lock</button>
+          </div>
+          <button class="ghost-btn full" id="resetBtn">Reset for Next Question</button>
+        </section>
+      </div>
+
+      <section class="glass-card winner-card">
+        <div class="card-heading">
+          <span class="step">02</span>
+          <div><h2>First Buzz Result</h2><p>Only the first accepted participant or team appears here.</p></div>
+        </div>
+        <div class="winner-empty" id="winnerEmpty">No buzz received yet.</div>
+        <div class="winner-result hidden" id="winnerResult">
+          <span class="winner-kicker">FIRST TO BUZZ</span>
+          <h3 id="winnerName">—</h3>
+          <p id="winnerTime">—</p>
+        </div>
+      </section>
+
+      <section class="glass-card participants-card">
+        <div class="card-heading">
+          <span class="step">03</span>
+          <div><h2>Connected Participants</h2><p>No scores or leaderboard are shown.</p></div>
+        </div>
+        <div id="participantList" class="participant-list"><p class="muted">Nobody has joined yet.</p></div>
+      </section>
+
+      <button class="danger-btn" id="endRoomBtn">End Room</button>
+    </section>
+  </main>
+
+  <footer>Spotlight Club · Department of Computer Science</footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script src="config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

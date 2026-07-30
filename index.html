@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050403" />
+  <title>Link Ohh Link | Live Buzzer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700;6..96,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header">
+    <div class="brand">LINK OHH LINK</div>
+    <a class="admin-link" href="admin.html">Quiz Master</a>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero">
+      <p class="eyebrow">NEXGEN NURA’26 · LIVE EVENT SYSTEM</p>
+      <h1>Think fast.<br><span>Buzz first.</span></h1>
+      <p class="hero-copy">Enter your room code and participant or team name. The buzzer activates only when the Quiz Master opens it.</p>
+    </section>
+
+    <section class="glass-card join-card" id="joinCard">
+      <div class="card-heading">
+        <span class="step">01</span>
+        <div>
+          <h2>Join Buzzer Room</h2>
+          <p>Use the six-digit room code shared by the coordinator.</p>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <label>
+          <span>Room Code</span>
+          <input id="roomCode" maxlength="6" inputmode="numeric" placeholder="000000" autocomplete="off" />
+        </label>
+        <label>
+          <span>Participant / Team Name</span>
+          <input id="displayName" maxlength="40" placeholder="Enter your name" autocomplete="off" />
+        </label>
+      </div>
+
+      <button class="primary-btn" id="joinBtn">Join Room</button>
+      <p class="message" id="joinMessage"></p>
+    </section>
+
+    <section class="buzzer-stage hidden" id="buzzerStage">
+      <div class="room-strip">
+        <div><span>ROOM</span><strong id="activeRoom">------</strong></div>
+        <div><span>PLAYER</span><strong id="activeName">—</strong></div>
+        <button class="ghost-btn" id="leaveBtn">Leave</button>
+      </div>
+
+      <div class="buzzer-panel">
+        <div class="status-pill" id="statusPill">Waiting for Quiz Master</div>
+        <button class="buzzer" id="buzzBtn" disabled aria-label="Buzz">
+          <span class="buzzer-core">BUZZ</span>
+          <span class="buzzer-ring"></span>
+        </button>
+        <h2 id="resultTitle">Buzzer Locked</h2>
+        <p id="resultText">The Quiz Master has not enabled the buzzer yet.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>Spotlight Club · Department of Computer Science</footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script src="config.js"></script>
+  <script src="participant.js"></script>
+</body>
+</html>
